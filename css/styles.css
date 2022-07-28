@@ -76,13 +76,16 @@ header {
   color: var(--white-color);
 }
 
-.nav-link {
-  color: var(--black-color);
+.contact-link , .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 32px;
+  padding-top: 32px;
   transition: color var(--transition) var(--timing-function);
 }
-
-.nav-link:hover,
-.nav-link:focus {
+.nav-link:hover ,
+.nav-link:focus , .current {
   color: var(--brand-color);
 }
 .current {
@@ -262,12 +265,15 @@ header {
   border: 0;
   font-family: "Roboto";
   transition: color var(--transition) var(--timing-function),
-    background-color var(--transition) var(--timing-function);
+    background-color var(--transition) var(--timing-function),
+    box-shadow var(--transition) var(--timing-function);
 }
 .filter-btn:hover,
-.filter-btn:focus {
+.filter-btn:focus,
+.filter-active {
   color: var(--white-color);
   background-color: var(--brand-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .project-title {
@@ -312,6 +318,7 @@ address {
   display: flex;
   align-items: center;
   gap: 50px;
+  color: var(--black-color);
 }
 .nav {
   display: flex;
@@ -336,19 +343,8 @@ address {
   display: flex;
   align-items: center;
 }
-.nav-link {
-  display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 32px;
-  padding-top: 32px;
-  transition: color var(--transition) var(--timing-function);
-}
+
+
 
 .address-list {
   display: flex;
@@ -372,15 +368,19 @@ address {
 
 .activity-text {
   position: absolute;
+  display: flex;
   bottom: 0;
   width: 100%;
-  text-align: center;
+  align-items: center;
   justify-content: center;
-  text-transform: uppercase;
-  padding-top: 27px;
-  padding-bottom: 27px;
+  padding: 27px;
   color: var(--white-color);
   background-color: var(--activity-bgrd);
+}
+.activity-title{
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: calc(16 / 14);
 }
 
 .project-item {
@@ -394,6 +394,7 @@ address {
 .project-link {
   display: flex;
   flex-direction: column;
+  transition: box-shadow var(--transition) var(--timing-function);
 }
 
 .project-link:hover,
@@ -464,7 +465,6 @@ address {
 }
 .client-link:hover,
 .client-link:focus {
-  border-color: var(--brand-color);
   color: var(--brand-color);
 }
 
@@ -517,11 +517,13 @@ address {
   background-color: var(--brand-background);
 
   transform: translateY(100%);
+  transition: transform var(--transition);
 }
 
-.project-link:hover .project-overlay {
+.project-link:hover .project-overlay ,
+.project-link:focus .project-overlay {
   transform: translateX(0);
-  transition: transform var(--transition);
+
 }
 
 .backdrop{
